@@ -9,19 +9,22 @@ import rootReducer from "./modules";
 import {logger} from "redux-logger/src";
 import {composeWithDevTools} from "redux-devtools-extension";
 import thunk from "redux-thunk";
+import {BrowserRouter} from "react-router-dom";
 
 
 const store = createStore(
     rootReducer,
     // logger 를 사용하는 경우, logger가 가장 마지막에 와야합니다.
-    composeWithDevTools(applyMiddleware(thunk,logger))
+    composeWithDevTools(applyMiddleware(thunk, logger))
 )
 
 ReactDOM.render(
     <React.StrictMode>
-        <Provider store={store}>
-            <App/>
-        </Provider>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App/>
+            </Provider>
+        </BrowserRouter>
     </React.StrictMode>,
     document.getElementById('root')
 );

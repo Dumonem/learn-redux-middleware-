@@ -1,7 +1,14 @@
-import CounterContainer from "./components/CounterContainer";
+import {Route} from 'react-router-dom';
+import PostListContainer from "./components/PostListContainer";
+import PostPage from "./pages/PostPage";
 
 function App() {
-    return <CounterContainer />;
+    return (
+        <>
+            <Route path="/" component={PostListContainer} exact={true}/>
+            <Route path="/:id" component={PostPage} />
+        </>
+    );
 }
 
 export default App;
